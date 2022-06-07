@@ -1,7 +1,12 @@
+from random import randint
+from statistics import mode
 print("Šīs sistēmas mērķis ir iemācīt un pārbaudīt tavas zināšanas par tēmām:")
 print("Aritmētiskais vidējais")
 print("Moda")
 print("Mediāna")
+print("Ierakstot arit_vid_teorija(); moda_teorija();mediana_teorija() varēsiet apskatīt teoriju par priekšmetu un izpildīt dažus uzdevumus")
+print("Ierakstot arit_vid_pd(); moda_pd(); mediana_pd() varēsiet pildīt pārbaudes darbus par izvēlēto tēmu")
+print("Kad uzskatat ka esat pietiekoši atkartojuši tēmu ievadiet gala_pd() lai izpildītu pārbaudes darbu kurš ietvers uzdevumus no visām tēmām")
 
 def arit_vid_teorija():
     #teorija
@@ -41,6 +46,8 @@ def arit_vid_teorija():
     for x in range(saraksta_garums):
         saraksts[x] = float(input("Ievadi "+ str((x + 1)) +". vērtibu: "))
         summa += saraksts[x]
+
+        
     summa_lietotajs = int(input("Tagad ievadi tiko ievadīto skaitļu summu: "))
     while atrisinats == False:
         if summa_lietotajs == summa:
@@ -49,6 +56,8 @@ def arit_vid_teorija():
         else:
             summa_lietotajs = int(input("Nepareizi. Mēģini vēlreiz: "))
     atrisinats = False
+
+    
     vid_teorija = summa / saraksta_garums
     float(vid_teorija)
     print("Tagad ievadi vidējo aritmētisko")
@@ -60,3 +69,50 @@ def arit_vid_teorija():
         else:
             vid_teorija_lietotajs = float(input("Nepareizi. Izlasi iepriekš rādīto teoriju un mēgini vēlreiz: "))
     atrisinats = False
+
+    
+def moda_teorija(): 
+    atrisinats = False
+    print("Statistikā moda ir datu vienība kura atkārtojas visvairāk")
+    print("Piemēram mums ir saraksts kurš satur elementus 4,1,2,6,4,2,4,3,5,2")
+    print("Šajā sarakstā moda ir vērtība 4 jo tā atkārtojas visvairāk reizes jeb trīs reizes")
+
+    
+    a = randint(8,10)
+    moda_teorija_saraksts = [0] * a
+    for i in range(a):
+        moda_teorija_saraksts[i] = randint(1,7)
+        
+        
+    print("Tagad pamēģini pats, dotajam sarakstam pieraksti modu")
+    print(moda_teorija_saraksts)
+    moda_saraksts_teorjia_lietotajs = int(input("Ievadi saraksta modu: "))
+    while atrisinats == False:
+        if moda_saraksts_teorjia_lietotajs == mode(moda_teorija_saraksts):
+            print("Pareizi")
+            atrisinats = True
+        else:
+            moda_saraksts_teorjia_lietotajs= int(input("Nepareizi mēģini vēlreiz: "))
+    atrisinats = False
+    
+    
+    a = randint(1,12)
+    moda_teorija_saraksts = [0] * 8
+    print("Tagad pats izveidosi sarakstu bet sarakasta modai ir jābūt", a," Sarakstam būs 8 elementi")
+    for i in range(8):
+        moda_teorija_saraksts = int(input("Ievadi "+ str(i+1) +". vērtību: "))
+    lietotaja_saraksts_moda = mode(moda_teorija_saraksts)
+    int(lietotaja_saraksta_moda)
+    
+    while atrisinats == False:
+        if lietotaja_saraksts_moda == 8:
+            print("Uzrakstīji pareizi. Esi apguvis teoriju par tēmu moda 0_0")
+            atrisinats = True
+        else:
+            print("Nepareizi. Ievadi sarakstu vēlreiz")
+            for i in range(8):
+                moda_teorija_saraksts = int(input("Ievadi "+ str(i+1) +". vērtību: "))
+            lietotaja_saraksts_moda = mode(moda_teorija_saraksts)
+            int(lietotaja_saraksta_moda)
+    atrisinats = False
+    
