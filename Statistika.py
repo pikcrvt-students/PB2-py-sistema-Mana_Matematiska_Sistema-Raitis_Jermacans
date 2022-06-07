@@ -51,7 +51,8 @@ def arit_vid_teorija():
     atrisinats = False
     vid_teorija = summa / saraksta_garums
     float(vid_teorija)
-    vid_teorija_lietotajs = float(input("Tagad ievadi vidējo aritmētisko ( atceries vid. arit. iegust kopēju summu izdalot ar datu kopēju skaitu ): "))
+    print("Tagad ievadi vidējo aritmētisko")
+    vid_teorija_lietotajs = float(input("!!Atceries vid. arit. iegust kopēju summu izdalot ar datu kopēju skaitu!!. Raksti obligāti ar diviem skaitļiem aiz komata : "))
     while atrisinats == False:
         if vid_teorija_lietotajs == vid_teorija:
             print("Pareizi. Tu esi apguvis tēmas vidējais aritmētiskais teoriju :3")
