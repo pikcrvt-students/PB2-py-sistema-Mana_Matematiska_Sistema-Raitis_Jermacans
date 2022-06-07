@@ -51,7 +51,6 @@ def arit_vid_teorija():
     atrisinats = False
     vid_teorija = summa / saraksta_garums
     float(vid_teorija)
-    print(vid_teorija)
     vid_teorija_lietotajs = float(input("Tagad ievadi vidējo aritmētisko ( atceries vid. arit. iegust kopēju summu izdalot ar datu kopēju skaitu ): "))
     while atrisinats == False:
         if vid_teorija_lietotajs == vid_teorija:
