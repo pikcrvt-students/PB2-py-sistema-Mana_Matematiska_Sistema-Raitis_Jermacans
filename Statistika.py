@@ -1,5 +1,8 @@
 from random import randint
 from statistics import mode
+from statistics import median
+
+
 print("Šīs sistēmas mērķis ir iemācīt un pārbaudīt tavas zināšanas par tēmām:")
 print("Aritmētiskais vidējais")
 print("Moda")
@@ -115,4 +118,38 @@ def moda_teorija():
             lietotaja_saraksts_moda = mode(moda_teorija_saraksts)
             int(lietotaja_saraksta_moda)
     atrisinats = False
+def mediana_teorija():
+    atrisinats = False
+    print("Mediāna ir vidējais rezultāts skaitļu virknē, kurā visi elementi sakārtoti augošā secībā ")
+    print("Teiksim ir saraksts 1,6,2,4,3,6,6,3,2")
+    print("Lai iegūtu mediānu sākumā vajag sakārtot vērtības augošā secībā")
+    print("Tad iznāk 1,2,2,3,3,4,6,6,6")
+    print("Sarakstā pa vidu atrodas skaitlis 3 tātad 3 ir mediāna")
+    print("Gadījumā kad ir pāra skaita elementu paņem abas vērtības tuvāk saraksta vidum, tās saskaita, un izdala ar 2")
+    print("Sarakstā 1,2,2,3,4,4 pa vidu atrodas 2 skaitļi 2 un 3 tāpēc mediānu iegūsim saskaitot 2 un 3 kopā un izdalot uz 2 dodot atbildi 2.5")
+    a = [0] * 9
+    for i in range(9):
+        a[i] = randint(1,10)
+
+    mediana_teorija = int(input("Pamēģināsi pats. Kas ir mediāna sarakstam" + str(a)+": " ))
+    while atrisinats == False:
+        if mediana_teorija == median(a):
+            print("Pareizi")
+            atrisinats = True
+        else:
+            mediana_teorija = int(input("Mēģini vēlreiz: "))
+    atrisinats = False
+
+    print("Tagad tev jāizveido saraksts kura mediāna ir 5. Sarakstā būs 9 elementi")
+    while atrisinats == False:
+        a = [0] * 9
+        for i in range(9):
+            a[i] = int(input("Ievadi "+str(i+1)+". saraksta elementu: "))
+        if median(a) == 5:
+            print("Pareizi. Esi apguvis tēoriju par tēmu mediāna ^_^")
+            atrisinats = True
+        else:
+            print("Mēģini vēlreiz")
+            for i in range(9):
+                a[i] = int(input("Ievadi "+str(i+1)+". saraksta elementu: "))
     
