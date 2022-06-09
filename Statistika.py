@@ -1,16 +1,36 @@
 from random import randint
 from statistics import mode
 from statistics import median
-
+def arit_vid(x):
+    return sum(x) / len(x)
+path = "C:\\Users\\12DRJermacans\\Downloads\\PB2-py-sistema-Mana_Matematiska_Sistema-Raitis_Jermacans\\atzimes.txt"
+atver_failu = open(path, 'a')
 
 print("Šīs sistēmas mērķis ir iemācīt un pārbaudīt tavas zināšanas par tēmām:")
 print("Aritmētiskais vidējais")
 print("Moda")
 print("Mediāna")
-print("Ierakstot arit_vid_teorija(); moda_teorija();mediana_teorija() varēsiet apskatīt teoriju par priekšmetu un izpildīt dažus uzdevumus")
-print("Ierakstot arit_vid_pd(); moda_pd(); mediana_pd() varēsiet pildīt pārbaudes darbus par izvēlēto tēmu")
-print("Kad uzskatat ka esat pietiekoši atkartojuši tēmu ievadiet gala_pd() lai izpildītu pārbaudes darbu kurš ietvers uzdevumus no visām tēmām")
-
+vards = input("Lai sāktu darības lūdz vieadiet savu vārdu un uzvārdu: ")
+atver_failu.write(vards)
+atver_failu.write("\n")
+atver_failu.read
+print("Labdien", vards)
+print("Ierakstot arit_vid_teorija(); moda_teorija();mediana_teorija() varēsiet apskatīt teoriju par priekšmetu un izpildīt dažus uzdevumus\n")
+print("Ierakstot arit_vid_pd(); moda_pd(); mediana_pd() varēsiet pildīt pārbaudes darbus par izvēlēto tēmu\n")
+print("Kad uzskatat ka esat pietiekoši atkartojuši tēmu ievadiet gala_pd() lai izpildītu pārbaudes darbu kurš ietvers uzdevumus no visām tēmām\n")
+print("Lai redzētu darbu rezultātus ieraksti temas_punkti()")
+print("-------------------------------------------------------------------------------------------------------------------------------------------------")
+def temas_punkti():
+    for i in range(3):
+        if i == 0:
+            print("Aritmētiskais vidējais darba iegūtie punkti", temas_pd[0])
+        elif i == 1:
+            print("Medianas darba iegūtie punkti", temas_pd[1])
+        else:
+            print("Modas darba iegutie punkti", temas_pd[2])
+            
+temas_pd = [[0,0,0],[0,0,0],[0,0,0]]
+gala_pd = []
 def arit_vid_teorija():
     #teorija
     print("Aritmētiskais vidējais ir vienāds ar pētījuma datu kopas visu vērtību summas un pētījuma novērojumu skaita dalījumu")
@@ -35,6 +55,7 @@ def arit_vid_teorija():
     while atrisinats == False:
         if summa_ievade == cenas_summa:
             print("Pareizi")
+            
             atrisinats = True
         else:
             print("Nepareizi mēģini vēlreiz")
@@ -66,7 +87,7 @@ def arit_vid_teorija():
     print("Tagad ievadi vidējo aritmētisko")
     vid_teorija_lietotajs = float(input("!!Atceries vid. arit. iegust kopēju summu izdalot ar datu kopēju skaitu!!. Raksti obligāti ar diviem skaitļiem aiz komata : "))
     while atrisinats == False:
-        if vid_teorija_lietotajs == vid_teorija:
+        if vid_teorija_lietotajs == "{:.2f}".format(vid_teorija):
             print("Pareizi. Tu esi apguvis tēmas vidējais aritmētiskais teoriju :3")
             atrisinats = True
         else:
@@ -152,4 +173,135 @@ def mediana_teorija():
             print("Mēģini vēlreiz")
             for i in range(9):
                 a[i] = int(input("Ievadi "+str(i+1)+". saraksta elementu: "))
+
+#pārbaudes darbi par tēmām
+def arit_vid_pd():
+    print("Pārbaudes darbs par tēmu Aritmētiskai Vidējais")
+    print("Darbā būs 3 uzdevumi")
+    print("Maksimālais punktu skaits ir 6")
+    #1
+    a = [0] * 7
+    for i in range(7):
+        a[i] = randint(1,12)
+    print(a)
+    y = float("{:.2f}".format(arit_vid(a)))
+    AV_pirm_uzd = float(input("(3 punkti) Kāds ir vidējais aritmētiskais sarakstam ( lieto 2 ciparus aiz komata): "))
+    if AV_pirm_uzd == y:
+        temas_pd[0][0] = 3
+    #2
+    x = randint(4,7)
+    a = [0] * x
+    print("(2 punkti) Izveido sarakastu kurā ir", x ,"elementi un vidējā vērtība ir 6")
+    for i in range(x):
+        a[i] = int(input("Ievadi "+ str(i+1) +". saraksta vērtību: "))
+    if arit_vid(a) == 6:
+        temas_pd[0][1] = 2
+    #3
+    x = randint(4,7)
+    a = [0] * x
+    for i in range(x):
+        a[i] = randint(1,15)
+    AV_tres_uzd = int(input("(1 punkts) Kāda ir summa sarakstam ja tajā ir "+ str(x) +" vērtības un "+ str("{:.2f}".format(arit_vid(a))) +" ir aritmētiskai vidējais: "))
+    if AV_tres_uzd == sum(a):
+        temas_pd[0][2] = 1
+    print("Ieguvi", str(sum(temas_pd[0])) ,"punktus")
     
+    atver_failu.write("Aritmētsikais vidējais pārbaudes darba punkti skaits"+ str(sum(temas_pd[0])) +"/6")
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------")
+    
+def moda_pd():
+    print("Pārbaudes darbs par tēmu Moda")
+    print("Darbā būs 3 uzdevumi")
+    print("Maksimālais punktu skaits ir 5")
+    #1
+    x = randint(9,15)
+    a = [0] * x
+    for i in range(x):
+        a[i] = randint(3,10)
+    moda_a = mode(a)
+    print(a)
+    MODA_pirm_uzd = int(input("(3 punkti) Kas ir moda dotajam sarakstam: "))
+    if MODA_pirm_uzd == moda_a:
+        temas_pd[1][0] = 3
+    #2
+    x = randint(9,15)
+    a = [0] * x
+    for i in range(x):
+        a[i] = randint(3,10)
+    moda_a = mode(a)
+    print(a)
+    MODA_otr_atbild = randint(3,10)
+    MODA_otr_uzd = input("(1 punkts) Vai saraksta moda ir "+ str(MODA_otr_atbild) +" (atbildi ar jā vai nē): ")
+    if MODA_otr_atbild == moda_a:
+        if MODA_otr_uzd == "jā":
+            temas_pd[1][1] = 1
+    else:
+        if MODA_otr_uzd == "nē":
+            temas_pd[1][1] = 1
+    #3
+    x = randint(9,15)
+    a = [0] * x
+    for i in range(x):
+        a[i] = randint(3,10)
+    moda_a = mode(a)
+    print(a)
+    arit_vid_a = arit_vid(a)
+    iespeja = randint(1,2)
+    if iespeja == 1:
+        print(moda_a)
+        MODA_tres_atbilde = "moda"
+    else:
+        print(arit_vid_a)
+        MODA_tres_atbilde = "videjais aritmetiskais"
+    MODA_tres_uzd = input("(1 punkts) Vai iepriekš dotais skaitlis ir saraksta moda vai videjais aritmetiskais: ")
+    if MODA_tres_uzd == MODA_tres_atbilde:
+        temas_pd[1][2] = 1
+    print("Ieguvi", str(sum(temas_pd[1])) ,"punktus")
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------")
+def mediana_pd():
+    print("Pārbaudes darbs par tēmu Mediāna")
+    print("Darbā būs 3 uzdevumi")
+    print("Maksimālais punktu skaits ir 6")
+
+    #1
+    x = randint(6,10)
+    a = [0] * x
+    for i in range(x):
+        a[i] = randint(1,20)
+    mediana_a = median(a)
+    print(a)
+    MEDI_pirm_uzd = float(input("(3 punkti) Ievadi saraksta mediānu ( raksti ar 2 cipariem aiz komata ) :"))
+    if MEDI_pirm_uzd == mediana_a:
+        temas_pd[2][0] = 3
+    #2
+    x = randint(5,11)
+    print("(2 punkti) Izveido sarakstu kura mediāna ir", x, "Sarakstā būs 8 elementi")
+    a = [0] * 8
+    for i in range(8):
+        a[i] = int(input("Ievadi saraksta "+ str(i+1)+" elementu: "))
+    if median(a) == x:
+        temas_pd[2][1] = 2
+    #3
+    x = randint(6,9)
+    a = [0] * x
+    for i in range(x):
+        a[i] = randint(1,10)
+    print(a)
+    mediana_a = median(a)
+    vid_arit_a = arit_vid(a)
+    iespeja = randint(1,2)
+    if iespeja == 1:
+
+        print(mediana_a)
+        MEDI_tres_atbilde = "jā"
+    else:
+        print(vid_arit_a)
+        MEDI_tres_atbilde = "nē"
+    MEDI_tres_uzd = input("(1 punkts) Vai dotais skaitlis ir saraksta mediāna (jā vai nē): ")
+    if MEDI_tres_uzd == MEDI_tres_atbilde:
+        temas_pd[2][2] = 1
+    print("Ieguvi", str(sum(temas_pd[2])) ,"punktus")
+    print("-------------------------------------------------------------------------------------------------------------------------------------------------")
+atver_failu.close()
+    
+
