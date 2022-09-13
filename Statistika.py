@@ -3,17 +3,14 @@ from statistics import mode
 from statistics import median
 def arit_vid(x):
     return sum(x) / len(x)
-path = "C:\\Users\\12DRJermacans\\Downloads\\PB2-py-sistema-Mana_Matematiska_Sistema-Raitis_Jermacans\\atzimes.txt"
-atver_failu = open(path, 'a')
+
 
 print("Šīs sistēmas mērķis ir iemācīt un pārbaudīt tavas zināšanas par tēmām:")
 print("Aritmētiskais vidējais")
 print("Moda")
 print("Mediāna")
 vards = input("Lai sāktu darības lūdz vieadiet savu vārdu un uzvārdu: ")
-atver_failu.write(vards)
-atver_failu.write("\n")
-atver_failu.read
+
 print("Labdien", vards)
 print("Ierakstot arit_vid_teorija(); moda_teorija();mediana_teorija() varēsiet apskatīt teoriju par priekšmetu un izpildīt dažus uzdevumus\n")
 print("Ierakstot arit_vid_pd(); moda_pd(); mediana_pd() varēsiet pildīt pārbaudes darbus par izvēlēto tēmu\n")
@@ -206,7 +203,7 @@ def arit_vid_pd():
         temas_pd[0][2] = 1
     print("Ieguvi", str(sum(temas_pd[0])) ,"punktus")
     
-    atver_failu.write("Aritmētsikais vidējais pārbaudes darba punkti skaits"+ str(sum(temas_pd[0])) +"/6")
+    
     print("-------------------------------------------------------------------------------------------------------------------------------------------------")
     
 def moda_pd():
@@ -302,6 +299,6 @@ def mediana_pd():
         temas_pd[2][2] = 1
     print("Ieguvi", str(sum(temas_pd[2])) ,"punktus")
     print("-------------------------------------------------------------------------------------------------------------------------------------------------")
-atver_failu.close()
+
     
 
