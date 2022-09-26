@@ -9,12 +9,11 @@ print("Šīs sistēmas mērķis ir iemācīt un pārbaudīt tavas zināšanas pa
 print("Aritmētiskais vidējais")
 print("Moda")
 print("Mediāna")
-vards = input("Lai sāktu darības lūdz vieadiet savu vārdu un uzvārdu: ")
+vards = input("Lai sāktu darbības lūdzu ievadiet savu vārdu un uzvārdu: ")
 
 print("Labdien", vards)
 print("Ierakstot arit_vid_teorija(); moda_teorija();mediana_teorija() varēsiet apskatīt teoriju par priekšmetu un izpildīt dažus uzdevumus\n")
 print("Ierakstot arit_vid_pd(); moda_pd(); mediana_pd() varēsiet pildīt pārbaudes darbus par izvēlēto tēmu\n")
-print("Kad uzskatat ka esat pietiekoši atkartojuši tēmu ievadiet gala_pd() lai izpildītu pārbaudes darbu kurš ietvers uzdevumus no visām tēmām\n")
 print("Lai redzētu darbu rezultātus ieraksti temas_punkti()")
 print("-------------------------------------------------------------------------------------------------------------------------------------------------")
 def temas_punkti():
@@ -84,7 +83,7 @@ def arit_vid_teorija():
     print("Tagad ievadi vidējo aritmētisko")
     vid_teorija_lietotajs = float(input("!!Atceries vid. arit. iegust kopēju summu izdalot ar datu kopēju skaitu!!. Raksti obligāti ar diviem skaitļiem aiz komata : "))
     while atrisinats == False:
-        if vid_teorija_lietotajs == "{:.2f}".format(vid_teorija):
+        if "{:.2f}".format(vid_teorija_lietotajs) == "{:.2f}".format(vid_teorija):
             print("Pareizi. Tu esi apguvis tēmas vidējais aritmētiskais teoriju :3")
             atrisinats = True
         else:
@@ -121,18 +120,18 @@ def moda_teorija():
     moda_teorija_saraksts = [0] * 8
     print("Tagad pats izveidosi sarakstu bet sarakasta modai ir jābūt", a," Sarakstam būs 8 elementi")
     for i in range(8):
-        moda_teorija_saraksts = int(input("Ievadi "+ str(i+1) +". vērtību: "))
-    lietotaja_saraksts_moda = mode(moda_teorija_saraksts)
-    int(lietotaja_saraksta_moda)
+        moda_teorija_saraksts[i] = int(input("Ievadi "+ str(i+1) +". vērtību: "))
+    lietotaja_saraksts_moda = int(mode(moda_teorija_saraksts))
+    int(lietotaja_saraksts_moda)
     
     while atrisinats == False:
-        if lietotaja_saraksts_moda == 8:
+        if lietotaja_saraksts_moda == a:
             print("Uzrakstīji pareizi. Esi apguvis teoriju par tēmu moda 0_0")
             atrisinats = True
         else:
             print("Nepareizi. Ievadi sarakstu vēlreiz")
             for i in range(8):
-                moda_teorija_saraksts = int(input("Ievadi "+ str(i+1) +". vērtību: "))
+                moda_teorija_saraksts[i] = int(input("Ievadi "+ str(i+1) +". vērtību: "))
             lietotaja_saraksts_moda = mode(moda_teorija_saraksts)
             int(lietotaja_saraksta_moda)
     atrisinats = False
@@ -301,4 +300,3 @@ def mediana_pd():
     print("-------------------------------------------------------------------------------------------------------------------------------------------------")
 
     
-
